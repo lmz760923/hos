@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as 
 # 目录
 KERNEL_DIR = ..
 KERNEL_DEVICE_DIR = .
@@ -7,7 +9,7 @@ KERNEL_DEVICE_DIR = .
 KERNEL_DEVICE_C_SRC = $(KERNEL_DEVICE_DIR)/kernel_device.c
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 # 标签标记所有的任务（输出什么文件），方便修改
 KERNEL_OBJS = $(KERNEL_DIR)/kernel_device.o
@@ -21,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_device.o: $(KERNEL_DEVICE_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_DEVICE_DIR)/kernel_device.asm $<
 	$(AS) -o $@ $(KERNEL_DEVICE_DIR)/kernel_device.asm
-	del $(KERNEL_DEVICE_DIR)\\kernel_device.asm
+	rm $(KERNEL_DEVICE_DIR)/kernel_device.asm
 
 # 文件不生成于此，无需清理规则

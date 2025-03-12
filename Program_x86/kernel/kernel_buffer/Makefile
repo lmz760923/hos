@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as 
 # 目录
 KERNEL_DIR = ..
 KERNEL_BUFFER_DIR = .
@@ -7,7 +9,7 @@ KERNEL_BUFFER_DIR = .
 KERNEL_BUFFER_C_SRC = $(KERNEL_BUFFER_DIR)/kernel_buffer.c
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 # 标签标记所有的任务（输出什么文件），方便修改
 KERNEL_OBJS = $(KERNEL_DIR)/kernel_buffer.o
@@ -21,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_buffer.o: $(KERNEL_BUFFER_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_BUFFER_DIR)/kernel_buffer.asm $<
 	$(AS) -o $@ $(KERNEL_BUFFER_DIR)/kernel_buffer.asm
-	del $(KERNEL_BUFFER_DIR)\\kernel_buffer.asm
+	rm $(KERNEL_BUFFER_DIR)/kernel_buffer.asm
 
 # 文件不生成于此，无需清理规则

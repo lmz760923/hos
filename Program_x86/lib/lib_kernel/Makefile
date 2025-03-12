@@ -1,3 +1,4 @@
+NASM=nasm 
 # 目录
 LIB_DIR = ..
 LIB_KERNEL = .
@@ -20,12 +21,12 @@ all: $(OBJS) $(LIB_DIR)/string.o $(LIB_DIR)/bitmap.o $(LIB_DIR)/list.o
 	$(NASM) $(ASM_FLAGS) -o $(LIB_DIR)/$@ $<
 
 $(LIB_DIR)/string.o:
-	$(MAKE) -C $(STRING_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(STRING_DIR) 
 
 $(LIB_DIR)/bitmap.o:
-	$(MAKE) -C $(BITMAP_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(BITMAP_DIR) 
 
 $(LIB_DIR)/list.o:
-	$(MAKE) -C $(LIST_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(LIST_DIR) 
 
 # 文件不在这里生成，无需清理

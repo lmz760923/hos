@@ -1,3 +1,6 @@
+GCC=gcc 
+AS=as 
+
 # 目录
 FS_DIR = .
 
@@ -8,7 +11,7 @@ FS_C_SRC = $(wildcard $(FS_DIR)/*.c)
 FS_OBJS = $(FS_C_SRC:.c=.o)
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 .PHONY: all
 
@@ -22,5 +25,5 @@ all: $(FS_OBJS)
 
 # 清理规则
 clean:
-	@if exist $(FS_DIR)\\*.asm del $(FS_DIR)\\*.asm
-	@if exist $(FS_DIR)\\*.o del $(FS_DIR)\\*.o
+	rm $(FS_DIR)/*.asm
+	rm $(FS_DIR)/*.o

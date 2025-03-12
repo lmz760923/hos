@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as
 # 目录
 DEVICE_DIR = ..
 RAMDISK_DIR = .
@@ -21,6 +23,6 @@ all: $(DEVICE_OBJS)
 $(DEVICE_DIR)/ramdisk.o: $(RAMDISK_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(RAMDISK_DIR)/ramdisk.asm $<
 	$(AS) -o $@ $(RAMDISK_DIR)/ramdisk.asm
-	del $(RAMDISK_DIR)\\ramdisk.asm
+	rm $(RAMDISK_DIR)/ramdisk.asm
 
 # 文件不生成于此，无需清理规则

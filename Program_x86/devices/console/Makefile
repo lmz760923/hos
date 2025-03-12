@@ -1,4 +1,7 @@
 
+GCC=gcc 
+AS=as 
+
 # 目录
 DEVICE_DIR = ..
 CONSOLE_DIR = .
@@ -21,6 +24,6 @@ all: $(DEVICE_OBJS)
 $(DEVICE_DIR)/console.o: $(CONSOLE_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(CONSOLE_DIR)/console.asm $<
 	$(AS) -o $@ $(CONSOLE_DIR)/console.asm
-	del $(CONSOLE_DIR)\\console.asm
+	rm $(CONSOLE_DIR)/console.asm
 
 # 文件不生成于此，无需清理规则

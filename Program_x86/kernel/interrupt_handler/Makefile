@@ -1,3 +1,5 @@
+GCC=gcc 
+AS=as 
 # 目录
 KERNEL_DIR = ..
 INTERRUPT_HANDLER = .
@@ -6,7 +8,7 @@ INTERRUPT_HANDLER = .
 SYSCALL_DISPATCHER_C_SRC = $(INTERRUPT_HANDLER)/syscall_dispatcher.c
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 # 汇编标志
 ASM_FLAGS = -f elf32
@@ -27,6 +29,6 @@ all: $(OBJS) $(KERNEL_DIR)/syscall_dispatcher.o
 $(KERNEL_DIR)/syscall_dispatcher.o: $(SYSCALL_DISPATCHER_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(INTERRUPT_HANDLER)/syscall_dispatcher.asm $<
 	$(AS) -o $@ $(INTERRUPT_HANDLER)/syscall_dispatcher.asm
-	del $(INTERRUPT_HANDLER)\\syscall_dispatcher.asm
+	rm $(INTERRUPT_HANDLER)/syscall_dispatcher.asm
 
 # 不在此处生成文件无需清理

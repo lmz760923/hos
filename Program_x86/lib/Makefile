@@ -10,11 +10,11 @@ all: $(OBJS)
 
 # 目标文件生成规则
 $(LIB_DIR)/kernel.o:
-	$(MAKE) -C $(LIB_KERNEL) GCC=$(GCC) AS=$(AS) NASM=$(NASM) MAKE=$(MAKE)
+	$(MAKE) -C $(LIB_KERNEL) 
 
 $(LIB_DIR)/user.o:
-	$(MAKE) -C $(LIB_USER) GCC=$(GCC) AS=$(AS) NASM=$(NASM) MAKE=$(MAKE)
+	$(MAKE) -C $(LIB_USER) 
 
 # 清理目标，删除所有 .o 文件
 clean:
-	@if exist $(LIB_DIR)\\*.o del $(LIB_DIR)\\*.o
+	rm $(LIB_DIR)/*.o

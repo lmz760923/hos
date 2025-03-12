@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as
 # 目录
 DEVICE_DIR = ..
 PIT8253_DIR = .
@@ -21,6 +23,6 @@ all: $(DEVICE_OBJS)
 $(DEVICE_DIR)/pit8253.o: $(PIT8253_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(PIT8253_DIR)/pit8253.asm $<
 	$(AS) -o $@ $(PIT8253_DIR)/pit8253.asm
-	del $(PIT8253_DIR)\\pit8253.asm
+	rm $(PIT8253_DIR)/pit8253.asm
 
 # 文件不生成于此，无需清理规则

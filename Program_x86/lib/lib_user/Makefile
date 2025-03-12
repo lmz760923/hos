@@ -1,3 +1,5 @@
+GCC=gcc 
+AS=as 
 # 目录
 LIB_DIR = ..
 LIB_USER = .
@@ -9,7 +11,7 @@ SYSCALL_C_SRC = $(LIB_USER)/syscall.c
 ASM_FLAGS = -f elf32
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 # 默认目标，编译所有的 .asm 文件
 all: $(LIB_DIR)/intr_syscall.o $(LIB_DIR)/syscall.o
@@ -24,6 +26,6 @@ $(LIB_DIR)/intr_syscall.o : $(INTR_SYSCALL_ASM_SRC)
 $(LIB_DIR)/syscall.o: $(SYSCALL_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(LIB_USER)/syscall.asm $<
 	$(AS) -o $@ $(LIB_USER)/syscall.asm
-	del $(LIB_USER)\\syscall.asm
+	rm $(LIB_USER)/syscall.asm
 
 # 文件不在这里生成，无需清理

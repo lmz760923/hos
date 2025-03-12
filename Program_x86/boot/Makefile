@@ -1,4 +1,4 @@
-
+NASM=nasm
 # 目录
 BOOT_DIR = .
 INCLUDE_DIR = $(BOOT_DIR)/include
@@ -28,4 +28,5 @@ $(LOADER_BIN): $(LOADER_SRC) $(INCLUDE_DIR)/boot.inc
 
 # 清理规则
 clean:
-	@if exist $(BOOT_DIR)\\*.bin del $(BOOT_DIR)\\*.bin
+	rm $(BOOT_DIR)/*.bin 
+	rm $(BOOT_DIR)/*.bin

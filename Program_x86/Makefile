@@ -1,11 +1,10 @@
 # 主Makefile，用于整合各模块操作
 
 # 汇编器和编译器、链接器等各种工具
-NASM = nasm
 # 编译工具链更换
-GCC = i686-elf-gcc
-AS = i686-elf-as
-LD = i686-elf-ld
+GCC = gcc
+AS = as
+LD = ld
 MAKE = make
 
 # 因为这个操作系统本质上是个宏内核，所有的组件都要打包在一个kernel.bin里面
@@ -35,12 +34,12 @@ all: compile link
 
 # 编译各组件
 compile:
-	$(MAKE) -C $(BOOT_DIR) NASM=$(NASM)
-	$(MAKE) -C $(LIB_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS) MAKE=$(MAKE)
-	$(MAKE) -C $(KERNEL_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS) MAKE=$(MAKE)
-	$(MAKE) -C $(DEVICE_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS) MAKE=$(MAKE)
-	$(MAKE) -C $(USER_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS) MAKE=$(MAKE)
-	$(MAKE) -C $(FS_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS) MAKE=$(MAKE)
+	$(MAKE) -C $(BOOT_DIR) 
+	$(MAKE) -C $(LIB_DIR) 
+	$(MAKE) -C $(KERNEL_DIR) 
+	$(MAKE) -C $(DEVICE_DIR) 
+	$(MAKE) -C $(USER_DIR) 
+	$(MAKE) -C $(FS_DIR) 
 
 # 链接生成 kernel.bin
 link:

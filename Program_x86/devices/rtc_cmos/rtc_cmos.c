@@ -50,14 +50,15 @@ uint32_t get_unix_timestamp(rtc_time_t *time) {
     uint32_t year = time->year;
     uint32_t month = time->month;
     uint32_t day = time->day;
-
+    uint32_t y;
+    uint32_t m;
     // 计算从1970年到当前年份的总天数
-    for (uint32_t y = 1970; y < year; y++) {
+    for (y = 1970; y < year; y++) {
         days += (y % 4 == 0 && (y % 100 != 0 || y % 400 == 0)) ? 366 : 365;
     }
 
     // 计算当前年份中从1月到当前月份的总天数
-    for (uint32_t m = 1; m < month; m++) {
+    for (m = 1; m < month; m++) {
         days += days_in_month[m - 1];
         if (m == 2 && (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0))) {
             days += 1; // 闰年二月增加一天

@@ -1,4 +1,7 @@
 
+GCC=gcc 
+AS=as 
+NASM=nasm 
 # 目录
 KERNEL_DIR = ..
 KERNEL_TASK_DIR = .
@@ -13,7 +16,7 @@ KERNEL_SYNC_C_SRC = $(KERNEL_TASK_DIR)/kernel_sync.c
 KERNEL_TASK_ATOMIC_ASM = $(KERNEL_TASK_DIR)/atomic.asm
 
 # C 编译标志
-CFLAGS = -ffreestanding -nostdlib -Wall -Wextra
+CFLAGS = -ffreestanding -nostdlib -Wall -Wextra -std=c99
 
 # 汇编标志
 ASM_FLAGS = -f elf32
@@ -30,12 +33,12 @@ all: $(OBJS)
 $(KERNEL_DIR)/kernel_task.o: $(KERNEL_TASK_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_TASK_DIR)/kernel_task.asm $<
 	$(AS) -o $@ $(KERNEL_TASK_DIR)/kernel_task.asm
-	del $(KERNEL_TASK_DIR)\\kernel_task.asm
+	rm $(KERNEL_TASK_DIR)/kernel_task.asm
 
 $(KERNEL_DIR)/kernel_sync.o: $(KERNEL_SYNC_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_TASK_DIR)/kernel_sync.asm $<
 	$(AS) -o $@ $(KERNEL_TASK_DIR)/kernel_sync.asm
-	del $(KERNEL_TASK_DIR)\\kernel_sync.asm
+	rm $(KERNEL_TASK_DIR)/kernel_sync.asm
 
 $(KERNEL_DIR)/switch_to.o: $(KERNEL_TASK_SWITCH_TO_ASM)
 	$(NASM) $(ASM_FLAGS) -o $@ $<

@@ -16,21 +16,21 @@ all: $(DEVICE_OBJS)
 
 # 执行各子模块编译
 pit8253.o:
-	$(MAKE) -C $(PIT8253_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(PIT8253_DIR) 
 
 console.o:
-	$(MAKE) -C $(CONSOLE_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(CONSOLE_DIR) 
 
 keyboard.o:
-	$(MAKE) -C $(KEYBOARD_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(KEYBOARD_DIR) 
 
 ramdisk.o:
-	$(MAKE) -C $(RAMDISK_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(RAMDISK_DIR) 
 
 rtc_cmos.o:
-	$(MAKE) -C $(RTC_CMOS_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(RTC_CMOS_DIR) 
 
 # 清理规则
 clean:
-	@if exist $(DEVICE_DIR)\\*.o del $(DEVICE_DIR)\\*.o
-	@if exist $(DEVICE_DIR)\\*.bin del $(DEVICE_DIR)\\*.bin
+	rm $(DEVICE_DIR)/*.o 
+	rm $(DEVICE_DIR)/*.bin

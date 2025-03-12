@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as
 # 目录
 DEVICE_DIR = ..
 KEYBOARD_DIR = .
@@ -21,6 +23,6 @@ all: $(DEVICE_OBJS)
 $(DEVICE_DIR)/keyboard.o: $(KEYBOARD_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KEYBOARD_DIR)/keyboard.asm $<
 	$(AS) -o $@ $(KEYBOARD_DIR)/keyboard.asm
-	del $(KEYBOARD_DIR)\\keyboard.asm
+	rm $(KEYBOARD_DIR)/keyboard.asm
 
 # 文件不生成于此，无需清理规则

@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as 
 # 目录
 KERNEL_DIR = .
 
@@ -40,40 +42,40 @@ all: $(KERNEL_OBJS)
 
 # 执行各子模块编译
 $(KERNEL_DIR)/kernel_page.o:
-	$(MAKE) -C $(PAGE_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(PAGE_DIR) 
 
 $(KERNEL_DIR)/kernel_gdt.o:
-	$(MAKE) -C $(GDT_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(GDT_DIR) 
 
 $(KERNEL_DIR)/kernel_idt.o:
-	$(MAKE) -C $(IDT_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(IDT_DIR) 
 
 $(KERNEL_DIR)/kernel_device.o:
-	$(MAKE) -C $(DEVICE_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(DEVICE_DIR) 
 
 $(KERNEL_DIR)/kernel_interrupt.o:
-	$(MAKE) -C $(INTERRUPT_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(INTERRUPT_DIR) 
 
 $(KERNEL_DIR)/interrupt_handler.o:
-	$(MAKE) -C $(INTERRUPT_HANDLER_DIR) NASM=$(NASM) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(INTERRUPT_HANDLER_DIR) 
 
 $(KERNEL_DIR)/kernel_memory.o:
-	$(MAKE) -C $(MEMORY_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(MEMORY_DIR) 
 
 $(KERNEL_DIR)/kernel_task.o:
-	$(MAKE) -C $(TASK_DIR) GCC=$(GCC) AS=$(AS) NASM=$(NASM)
+	$(MAKE) -C $(TASK_DIR) 
 
 $(KERNEL_DIR)/kernel_buffer.o:
-	$(MAKE) -C $(BUFFER_DIR) GCC=$(GCC) AS=$(AS)
+	$(MAKE) -C $(BUFFER_DIR) 
 
 
 # C 文件生成 汇编文件，再汇编生成.o，为什么这么做之前说过了，这个gcc的汇编器不知道什么问题
 $(KERNEL_DIR)/kernel.o: $(KERNEL_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_DIR)/kernel.asm $<
 	$(AS) -o $@ $(KERNEL_DIR)/kernel.asm
-	del $(KERNEL_DIR)\\kernel.asm
+	rm $(KERNEL_DIR)/kernel.asm
 
 # 清理规则
 clean:
-	@if exist $(KERNEL_DIR)\\*.o del $(KERNEL_DIR)\\*.o
-	@if exist $(KERNEL_DIR)\\*.bin del $(KERNEL_DIR)\\*.bin
+	rm $(KERNEL_DIR)/*.o
+	rm $(KERNEL_DIR)/*.bin

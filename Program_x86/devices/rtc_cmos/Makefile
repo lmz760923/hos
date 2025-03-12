@@ -1,4 +1,6 @@
 
+GCC=gcc 
+AS=as
 # 目录
 DEVICE_DIR = ..
 RTC_CMOS_DIR = .
@@ -21,6 +23,6 @@ all: $(DEVICE_OBJS)
 $(DEVICE_DIR)/rtc_cmos.o: $(RTC_CMOS_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(RTC_CMOS_DIR)/rtc_cmos.asm $<
 	$(AS) -o $@ $(RTC_CMOS_DIR)/rtc_cmos.asm
-	del $(RTC_CMOS_DIR)\\rtc_cmos.asm
+	rm $(RTC_CMOS_DIR)/rtc_cmos.asm
 
 # 文件不生成于此，无需清理规则
