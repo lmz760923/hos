@@ -1,5 +1,6 @@
 GCC=gcc 
 AS=as 
+NASM=nasm 
 # 目录
 KERNEL_DIR = ..
 INTERRUPT_HANDLER = .

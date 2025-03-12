@@ -1,5 +1,6 @@
 GCC=gcc 
 AS=as 
+NASM=nasm 
 # 目录
 LIB_DIR = ..
 LIB_USER = .

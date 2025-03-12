@@ -21,7 +21,7 @@ all: $(FS_OBJS)
 %.o: %.c
 	$(GCC) $(CFLAGS) -S -o $(FS_DIR)/$*.asm $<
 	$(AS) -o $(FS_DIR)/$*.o $(FS_DIR)/$*.asm
-	rm $(FS_DIR)\\$*.asm
+	rm -f $(FS_DIR)\\$*.asm
 
 # 清理规则
 clean:
