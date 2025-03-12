@@ -33,7 +33,7 @@ all: $(OBJS)
 $(KERNEL_DIR)/kernel_task.o: $(KERNEL_TASK_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_TASK_DIR)/kernel_task.asm $<
 	$(AS) -o $@ $(KERNEL_TASK_DIR)/kernel_task.asm
-	rm $(KERNEL_TASK_DIR)/kernel_task.asm
+	rm -f $(KERNEL_TASK_DIR)/kernel_task.asm
 
 $(KERNEL_DIR)/kernel_sync.o: $(KERNEL_SYNC_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_TASK_DIR)/kernel_sync.asm $<

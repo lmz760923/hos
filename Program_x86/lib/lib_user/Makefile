@@ -26,6 +26,6 @@ $(LIB_DIR)/intr_syscall.o : $(INTR_SYSCALL_ASM_SRC)
 $(LIB_DIR)/syscall.o: $(SYSCALL_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(LIB_USER)/syscall.asm $<
 	$(AS) -o $@ $(LIB_USER)/syscall.asm
-	rm $(LIB_USER)/syscall.asm
+	rm -f $(LIB_USER)/syscall.asm
 
 # 文件不在这里生成，无需清理

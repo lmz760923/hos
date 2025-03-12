@@ -28,5 +28,5 @@ $(LOADER_BIN): $(LOADER_SRC) $(INCLUDE_DIR)/boot.inc
 
 # 清理规则
 clean:
-	rm $(BOOT_DIR)/*.bin 
-	rm $(BOOT_DIR)/*.bin
+	
+	rm -f $(BOOT_DIR)/*.bin

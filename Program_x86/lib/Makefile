@@ -17,4 +17,4 @@ $(LIB_DIR)/user.o:
 
 # 清理目标，删除所有 .o 文件
 clean:
-	rm $(LIB_DIR)/*.o
+	rm -f $(LIB_DIR)/*.o

@@ -32,5 +32,5 @@ rtc_cmos.o:
 
 # 清理规则
 clean:
-	rm $(DEVICE_DIR)/*.o 
-	rm $(DEVICE_DIR)/*.bin
+	rm -f $(DEVICE_DIR)/*.o 
+	rm -f $(DEVICE_DIR)/*.bin

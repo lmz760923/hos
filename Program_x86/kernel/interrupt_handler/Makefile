@@ -29,6 +29,6 @@ all: $(OBJS) $(KERNEL_DIR)/syscall_dispatcher.o
 $(KERNEL_DIR)/syscall_dispatcher.o: $(SYSCALL_DISPATCHER_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(INTERRUPT_HANDLER)/syscall_dispatcher.asm $<
 	$(AS) -o $@ $(INTERRUPT_HANDLER)/syscall_dispatcher.asm
-	rm $(INTERRUPT_HANDLER)/syscall_dispatcher.asm
+	rm -f $(INTERRUPT_HANDLER)/syscall_dispatcher.asm
 
 # 不在此处生成文件无需清理

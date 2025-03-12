@@ -13,4 +13,4 @@ process.o:
 
 # 清理目标，删除所有 .o 文件
 clean:
-	rm $(USER_DIR)/*.o
+	rm -f $(USER_DIR)/*.o

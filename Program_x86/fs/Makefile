@@ -25,5 +25,5 @@ all: $(FS_OBJS)
 
 # 清理规则
 clean:
-	rm $(FS_DIR)/*.asm
-	rm $(FS_DIR)/*.o
+	rm -f $(FS_DIR)/*.asm
+	rm -f $(FS_DIR)/*.o

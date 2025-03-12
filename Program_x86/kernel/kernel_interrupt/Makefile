@@ -23,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_interrupt.o: $(KERNEL_INTERRUPT_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_INTERRUPT_DIR)/kernel_interrupt.asm $<
 	$(AS) -o $@ $(KERNEL_INTERRUPT_DIR)/kernel_interrupt.asm
-	rm $(KERNEL_INTERRUPT_DIR)/kernel_interrupt.asm
+	rm -f $(KERNEL_INTERRUPT_DIR)/kernel_interrupt.asm
 
 # 文件不生成于此，无需清理规则

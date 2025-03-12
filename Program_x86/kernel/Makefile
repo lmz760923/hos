@@ -77,5 +77,5 @@ $(KERNEL_DIR)/kernel.o: $(KERNEL_C_SRC)
 
 # 清理规则
 clean:
-	rm $(KERNEL_DIR)/*.o
-	rm $(KERNEL_DIR)/*.bin
+	rm -f $(KERNEL_DIR)/*.o
+	rm -f $(KERNEL_DIR)/*.bin

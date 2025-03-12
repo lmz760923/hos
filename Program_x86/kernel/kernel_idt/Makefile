@@ -23,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_idt.o: $(KERNEL_IDT_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_IDT_DIR)/kernel_idt.asm $<
 	$(AS) -o $@ $(KERNEL_IDT_DIR)/kernel_idt.asm
-	rm $(KERNEL_IDT_DIR)/kernel_idt.asm
+	rm -f $(KERNEL_IDT_DIR)/kernel_idt.asm
 
 # 文件不生成于此，无需清理规则

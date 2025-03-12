@@ -23,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_buffer.o: $(KERNEL_BUFFER_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_BUFFER_DIR)/kernel_buffer.asm $<
 	$(AS) -o $@ $(KERNEL_BUFFER_DIR)/kernel_buffer.asm
-	rm $(KERNEL_BUFFER_DIR)/kernel_buffer.asm
+	rm -f $(KERNEL_BUFFER_DIR)/kernel_buffer.asm
 
 # 文件不生成于此，无需清理规则

@@ -23,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_page.o: $(KERNEL_PAGE_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_PAGE_DIR)/kernel_page.asm $<
 	$(AS) -o $@ $(KERNEL_PAGE_DIR)/kernel_page.asm
-	rm $(KERNEL_PAGE_DIR)/kernel_page.asm
+	rm -f $(KERNEL_PAGE_DIR)/kernel_page.asm
 
 # 文件不生成于此，无需清理规则

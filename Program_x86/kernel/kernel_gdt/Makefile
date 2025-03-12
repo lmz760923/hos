@@ -23,6 +23,6 @@ all: $(KERNEL_OBJS)
 $(KERNEL_DIR)/kernel_gdt.o: $(KERNEL_GDT_C_SRC)
 	$(GCC) $(CFLAGS) -S -o $(KERNEL_GDT_DIR)/kernel_gdt.asm $<
 	$(AS) -o $@ $(KERNEL_GDT_DIR)/kernel_gdt.asm
-	rm $(KERNEL_GDT_DIR)/kernel_gdt.asm
+	rm -f $(KERNEL_GDT_DIR)/kernel_gdt.asm
 
 # 文件不生成于此，无需清理规则
