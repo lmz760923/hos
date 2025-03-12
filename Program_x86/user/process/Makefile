@@ -1,6 +1,5 @@
-
-GCC=gcc 
-AS=as 
+GCC=gcc -m32
+AS=as --32
 # 目录
 USER_DIR = ..
 USER_PROCESS_DIR = .

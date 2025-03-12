@@ -1,5 +1,5 @@
-GCC=gcc 
-AS=as 
+GCC=gcc -m32
+AS=as --32
 NASM=nasm 
 # 目录
 LIB_DIR = ..

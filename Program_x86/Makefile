@@ -2,8 +2,8 @@
 
 # 汇编器和编译器、链接器等各种工具
 # 编译工具链更换
-GCC = gcc
-AS = as
+GCC=gcc -m32
+AS=as --32
 LD = ld
 MAKE = make
 
@@ -25,7 +25,7 @@ KERNEL_BIN = $(KERNEL_DIR)/kernel.bin
 KERNEL_LINKER_SCRIPT = $(KERNEL_DIR)/kernel_linker.ld
 
 # 链接标志
-LDFLAGS = -T $(KERNEL_LINKER_SCRIPT) --oformat binary
+LDFLAGS = -T $(KERNEL_LINKER_SCRIPT) -m elf_i386 --oformat binary
 
 .PHONY: all
 

@@ -1,6 +1,5 @@
-
-GCC=gcc 
-AS=as 
+GCC=gcc -m32
+AS=as --32
 # 目录
 LIB_DIR = ../..
 LIB_KERNEL_DIR = ..

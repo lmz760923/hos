@@ -1,7 +1,6 @@
-
-
-GCC=gcc 
-AS=as # 目录
+GCC=gcc -m32
+AS=as --32
+# 目录
 KERNEL_DIR = ..
 KERNEL_GDT_DIR = .
 
